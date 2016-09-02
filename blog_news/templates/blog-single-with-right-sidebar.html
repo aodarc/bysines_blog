@@ -90,7 +90,7 @@
                   <div class="comments-box-area">
                     <h2>Leave a Comment</h2>
                     <p>Your email address will not be published.</p>
-                    <form action="" class="comments-form">
+                    <form action="{{ url 'add_comment' }}" method="post" class="comments-form">
                       <div class="form-group">                        
                         <input type="text" class="form-control" placeholder="Your Name">
                       </div>

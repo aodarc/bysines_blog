@@ -46,3 +46,18 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    email = models.EmailField()
+    name = models.CharField(max_length=30, blank=False)
+    content = models.TextField(max_length=1000, blank=False)
+    created = models.DateTimeField(auto_now_add=True, blank=False)
+
+    post = models.ForeignKey(to=News, on_delete=models.CASCADE, related_name='comment')
+
+    class Meta:
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comments'
+        ordering = ('-created',)
+

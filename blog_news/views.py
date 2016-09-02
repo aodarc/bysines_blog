@@ -27,3 +27,6 @@ def single_blog_post_view(request, post_id):
     }
 
     return render(request, 'blog-single-with-right-sidebar.html', content)
+
+def add_comment_view(request):
+    return render(request, )
