@@ -1,5 +1,6 @@
 {% extends 'index.html' %}
 {% load staticfiles %}
+{% load i18n %}
 
 {% block main %}
 
@@ -90,7 +91,7 @@
                   <div class="comments-box-area">
                     <h2>Leave a Comment</h2>
                     <p>Your email address will not be published.</p>
-                    <form action="{{ url 'add_comment' }}" method="post" class="comments-form">
+                    <form action="{% url 'add_comment' 1%}" method="post" class="comments-form">
                       <div class="form-group">                        
                         <input type="text" class="form-control" placeholder="Your Name">
                       </div>
@@ -138,16 +139,16 @@
                   <div class="sidebar-widget">
                     <h4 class="widget-title">Tags</h4>
                     <div class="tag-cloud">
-                      <a href="#">Responsive</a>
-                      <a href="#">Design</a>
-                      <a href="#">Modern</a>
-                      <a href="#">Business</a>
-                      <a href="#">Software</a>
-                      <a href="#">Photoshop</a>
-                      <a href="#">Fashion</a>                      
-                      <a href="#">News</a>
-                      <a href="#">Health</a>
-                      <a href="#">Education</a>
+                      <a href="#">{% trans 'Responsive' %}</a>
+                      <a href="#">{% trans 'Design' %}</a>
+                      <a href="#">{% trans 'Modern' %}</a>
+                      <a href="#">{% trans 'Business' %}</a>
+                      <a href="#">{% trans 'Software' %}</a>
+                      <a href="#">{% trans 'Photoshop' %}</a>
+                      <a href="#">{% trans 'Fashion' %}</a>
+                      <a href="#">{% trans 'News' %}</a>
+                      <a href="#">{% trans 'Health' %}</a>
+                      <a href="#">{% trans 'Education' %}</a>
                     </div>
                   </div>
                   <!-- Start sidebar widget -->
@@ -200,5 +201,18 @@
     </div>
   </section>
   <!-- End subscribe us -->
-
+<form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}" />
+    <select name="language">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                {{ language.name_local }} ({{ language.code }})
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Go" />
+</form>
 {% endblock %}

@@ -18,6 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^i18n/', include('django.conf.urls.i18n'), name='set_language'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'', include('blog_news.urls'))
 ]
