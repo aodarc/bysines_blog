@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -86,6 +87,24 @@
                     iam@domain.com
                   </div>
                 </li>
+                  <li>
+                      <div class="mail">
+                          <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                              <input name="next" type="hidden" value="{{ redirect_to }}" />
+                              <select name="language">
+                                  {% get_current_language as LANGUAGE_CODE %}
+                                  {% get_available_languages as LANGUAGES %}
+                                  {% get_language_info_list for LANGUAGES as languages %}
+                                  {% for language in languages %}
+                                      <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                                          {{ language.name_local }} ({{ language.code }})
+                                      </option>
+                                  {% endfor %}
+                              </select>
+                              <input type="submit" value="Go" />
+                          </form>
+                      </div>
+                  </li>
               </ul>
             </div>
           </div>
@@ -176,15 +195,15 @@
           </button>
           <!-- LOGO -->              
           <!-- TEXT BASED LOGO -->
-          <a class="navbar-brand" href="index.html">Новий Міст</a>              
+          <a class="navbar-brand" href="{% url 'home' %}">Новий Міст</a>
           <!-- IMG BASED LOGO  -->
            <!-- <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-            <li class="active"><a href="index.html">Головна</a></li>
-            <li><a href="index.html">Новини</a></li>
-            <li><a href="index.html">Послуги</a></li>
+            <li class="active"><a href="{% url 'home' %}">Головна</a></li>
+            <li><a href="{% url 'home' %}">Новини</a></li>
+            <li><a href="{% url 'service' %}">Послуги</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Для Бізнесу <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -230,7 +249,7 @@
         </div>
         <div class="col-md-6 col-sm-6">
           <div class="footer-right">
-            <a href="index.html"><i class="fa fa-facebook"></i></a>
+            <a href="{% url 'home' %}"><i class="fa fa-facebook"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-google-plus"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>

@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'uk-UK'
 
 LANGUAGES = [
-    ('uk', _('Ukraine')),
+    ('uk', _('Ukrainian')),
     ('en', _('English')),
     ('pl', _('Polish')),
 ]

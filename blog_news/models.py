@@ -19,9 +19,6 @@ class Tag(models.Model):
 
 
 class Category(models.Model):
-    # name_uk = models.CharField(max_length=25)
-    # name_en = models.CharField(max_length=25)
-    # name_pl = models.CharField(max_length=25)
     name = models.CharField(max_length=25, blank=False, db_index=True)
 
     class Meta:
@@ -59,6 +56,7 @@ class Comment(models.Model):
     content = models.TextField(max_length=1000, blank=False)
     created = models.DateTimeField(auto_now_add=True, blank=False)
 
+    # TODO overide on_delete method
     post = models.ForeignKey(to=News, on_delete=models.CASCADE, related_name='comment')
 
     class Meta:

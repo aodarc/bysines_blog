@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^i18n/', include('django.conf.urls.i18n'), name='set_language'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    url(r'', include('blog_news.urls'))
+    url(r'', include('blog_news.urls')),
+    url(r'^service$', TemplateView.as_view(template_name='service.html'), name='service')
 ]
