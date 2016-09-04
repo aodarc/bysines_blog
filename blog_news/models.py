@@ -1,11 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import get_language
-
-# from tinymce.models import HTMLField
-
-# from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
@@ -13,7 +8,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=25)
+    name = models.CharField(max_length=25, blank=False, db_index=True)
 
     class Meta:
         verbose_name = _('Tag')
@@ -24,9 +19,10 @@ class Tag(models.Model):
 
 
 class Category(models.Model):
-    name_uk = models.CharField(max_length=25)
-    name_en = models.CharField(max_length=25)
-    name_pl = models.CharField(max_length=25)
+    # name_uk = models.CharField(max_length=25)
+    # name_en = models.CharField(max_length=25)
+    # name_pl = models.CharField(max_length=25)
+    name = models.CharField(max_length=25, blank=False, db_index=True)
 
     class Meta:
         verbose_name = _('Category')
@@ -41,13 +37,8 @@ class News(models.Model):
 
     blog_news_img = models.ImageField(blank=True, upload_to='blog/posts/%Y/%m/%d')
 
-    title_uk = models.CharField(max_length=150, blank=False, db_index=True, unique=True)
-    title_eng = models.CharField(max_length=150, blank=False, db_index=True, unique=True)
-    title_pl = models.CharField(max_length=150, blank=False, db_index=True, unique=True)
-
-    content_uk = RichTextUploadingField(blank=True)
-    content_en = RichTextUploadingField(blank=True)
-    content_pl = RichTextUploadingField(blank=True)
+    title = models.CharField(max_length=150, blank=True, db_index=True, unique=True)
+    content = RichTextUploadingField(blank=True)
 
     created = models.DateField(auto_now_add=True)
 
@@ -57,38 +48,6 @@ class News(models.Model):
     class Meta:
         verbose_name = _('News in blog')
         verbose_name_plural = _('News in blog')
-
-    # def get_short_post(self):
-    #     post = self._get_translated_post()
-    #     post['title'] = post.get('title')[:56]
-    #     post['content'] = post.get('content')[:359] + '....'
-    #
-    #     return post
-
-    def get_translated_post(self):
-        # TODO overload GET method in django manager
-        lg = get_language()
-
-        if lg == 'uk':
-            self.title = self.title_uk
-            self.content = self.content_uk
-        elif lg == 'en':
-            self.title = self.title_en
-            self.content = self.content_en
-        else:
-            self.title = self.title_pl
-            self.content = self.content_pl
-
-        # attributes = {
-        #     'title': title,
-        #     'content': content,
-        #     'author': self.author,
-        #     'pk': self.pk,
-        #     'created': self.created,
-        #     'categories': self.categories,
-        #     'tags': self.tags
-        # }
-        return self
 
     def __str__(self):
         return self.title_uk

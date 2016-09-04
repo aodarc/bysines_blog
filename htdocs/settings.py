@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tinymce',
     'ckeditor',
     'ckeditor_uploader',
+    'modeltranslation',
     'blog_news',
 ]
 
@@ -118,6 +118,11 @@ LANGUAGES = [
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
+
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'uk'
+MODELTRANSLATION_LANGUAGES = ('uk', 'en', 'pl')
+MODELTRANSLATION_TRANSLATION_REGISTRY = 'htdocs.translation'
 
 TIME_ZONE = 'UTC'
 

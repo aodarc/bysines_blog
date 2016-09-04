@@ -1,24 +1,50 @@
 from django.contrib import admin
+from django.db import models
+from modeltranslation.translator import TranslationOptions, translator
 
 from .models import News, Tag, Category
 
 # Register your models here.
-from django import forms
 from ckeditor.widgets import CKEditorWidget
+from modeltranslation.admin import TabbedTranslationAdmin
 
 
-class PostAdminForm(forms.ModelForm):
-    content = forms.CharField(widget=CKEditorWidget())
+class NewsTranslationOptions(TranslationOptions):
 
-    class Meta:
-        model = News
-        fields = '__all__'
+    fields = ('title', 'content',)
 
 
-class PostAdmin(admin.ModelAdmin):
-    form = PostAdminForm
+class CategoryTranslationOptions(TranslationOptions):
+
+    fields = ('name',)
+
+translator.register(Category, CategoryTranslationOptions)
+translator.register(News, NewsTranslationOptions)
 
 
-admin.site.register(News, PostAdmin)
+class CategoryAdmin(TabbedTranslationAdmin):
+    pass
+
+
+class NewsAdmin(TabbedTranslationAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': CKEditorWidget()},
+    }
+    # fieldsets = [
+    #     (u'News', {'fields': ('author', 'blog_news_img', 'title', 'content', 'tags', 'categories')})
+    # ]
+
+    # class Media:
+    #     js = (
+    #         'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+    #         'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js',
+    #         'modeltranslation/js/tabbed_translation_fields.js',
+    #     )
+    #     css = {
+    #         'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+    #     }
+
+
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(News, NewsAdmin)
 admin.site.register(Tag)
-admin.site.register(Category)
