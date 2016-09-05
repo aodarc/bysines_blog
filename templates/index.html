@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Новий міст : Головна</title>
+    {% comment %}Translators: View verb{% endcomment %}
+    <title>{% trans 'Новий міст : Головна' %}</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/icon" href="{% static 'assets/images/favicon.ico' %}"/>
     <!-- Font Awesome -->
@@ -126,7 +127,7 @@
       <div id="login-content" class="modal-content">
         <div class="modal-header">
           <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
-          <h4 class="modal-title"><i class="fa fa-unlock-alt"></i>Login</h4>
+          <h4 class="modal-title"><i class="fa fa-unlock-alt"></i>{% trans 'Login' %}</h4>
         </div>
         <div class="modal-body">
           <form>
@@ -137,21 +138,21 @@
               <input type="password" placeholder="Password" class="form-control">
             </div>
              <div class="loginbox">
-              <label><input type="checkbox"><span>Remember me</span></label>
-              <button class="btn signin-btn" type="button">SIGN IN</button>
+              <label><input type="checkbox"><span>{% trans 'Remember me' %}</span></label>
+              <button class="btn signin-btn" type="button">{% trans 'SIGN IN' %}</button>
             </div>                    
           </form>
         </div>
         <div class="modal-footer footer-box">
-          <a href="#">Forgot password ?</a>
-          <span>No account ? <a id="signup-btn" href="#">Sign Up.</a></span>            
+          <a href="#">{% trans 'Forgot password ?' %}</a>
+          <span>{% trans 'No account ?' %} <a id="signup-btn" href="#">{% trans 'Sign Up.' %}</a></span>
         </div>
       </div>
       <!-- Start signup section -->
       <div id="signup-content" class="modal-content">
         <div class="modal-header">
           <button aria-label="Close" data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span></button>
-          <h4 class="modal-title"><i class="fa fa-lock"></i>Sign Up</h4>
+          <h4 class="modal-title"><i class="fa fa-lock"></i>{% trans 'Sign Up' %}</h4>
         </div>
         <div class="modal-body">
           <form>
@@ -168,11 +169,11 @@
               <input type="password" placeholder="Password" class="form-control">
             </div>
             <div class="signupbox">
-              <span>Already got account? <a id="login-btn" href="#">Sign In.</a></span>
+              <span>{% trans 'Already got account? ' %}<a id="login-btn" href="#">{% trans 'Sign In.' %}</a></span>
             </div>
             <div class="loginbox">
-              <label><input type="checkbox"><span>Remember me</span><i class="fa"></i></label>
-              <button class="btn signin-btn" type="button">SIGN UP</button>
+              <label><input type="checkbox"><span>{% trans 'Remember me' %}</span><i class="fa"></i></label>
+              <button class="btn signin-btn" type="button">{% trans 'SIGN UP' %}</button>
             </div>
           </form>
         </div>
@@ -201,29 +202,29 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-            <li class="active"><a href="{% url 'home' %}">Головна</a></li>
-            <li><a href="{% url 'home' %}">Новини</a></li>
-            <li><a href="{% url 'service' %}">Послуги</a></li>
+            <li class="active"><a href="{% url 'home' %}">{% trans 'Головна' %}</a></li>
+            <li><a href="{% url 'home' %}">{% trans 'Новини' %}</a></li>
+            <li><a href="{% url 'service' %}">{% trans 'Послуги' %}</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Для Бізнесу <span class="fa fa-angle-down"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="blog-archive.html">Оголошення</a></li>                
-                <li><a href="blog-single-with-left-sidebar.html">Зразки документів</a></li>
-                <li><a href="blog-single-with-right-sidebar.html">Тендери</a></li>
-				<li><a href="blog-single-with-out-sidebar.html">Гранти</a></li>   
-              </ul>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Для Бізнесу' %} <span class="fa fa-angle-down"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="blog-archive.html">{% trans 'Оголошення' %}</a></li>
+                    <li><a href="blog-single-with-left-sidebar.html">{% trans 'Зразки документів' %}</a></li>
+                    <li><a href="blog-single-with-right-sidebar.html">{% trans 'Тендери' %}</a></li>
+                    <li><a href="blog-single-with-out-sidebar.html">{% trans 'Гранти' %}</a></li>
+                </ul>
             </li>
-			 <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Дня Навчання <span class="fa fa-angle-down"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="blog-archive.html">Навчання</a></li>                
-                <li><a href="blog-single-with-left-sidebar.html">Практика</a></li>
-                <li><a href="blog-single-with-right-sidebar.html">Для викладачів</a></li>
-                <li><a href="blog-single-with-out-sidebar.html">Гранти</a></li>           
-              </ul>
-            </li>
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Дня Навчання' %} <span class="fa fa-angle-down"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="blog-archive.html">{% trans 'Навчання' %}</a></li>
+                    <li><a href="blog-single-with-left-sidebar.html">{% trans 'Практика' %}</a></li>
+                    <li><a href="blog-single-with-right-sidebar.html">{% trans 'Для викладачів' %}</a></li>
+                    <li><a href="blog-single-with-out-sidebar.html">{% trans 'Гранти' %}</a></li>
+                  </ul>
+              </li>
                      
-            <li><a href="contact.html">Контакти</a></li>
+            <li><a href="contact.html">{% trans 'Контакти' %}</a></li>
           </ul>                     
         </div><!--/.nav-collapse -->
         <a href="#" id="search-icon">
@@ -244,7 +245,7 @@
       <div class="row">
         <div class="col-md-6 col-sm-6">
           <div class="footer-left">
-            <p>Новий міст - українсько-польський бізнес центр</p>
+            <p>{% trans 'Новий міст - українсько-польський бізнес центр' %}</p>
           </div>
         </div>
         <div class="col-md-6 col-sm-6">
