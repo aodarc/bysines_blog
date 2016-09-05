@@ -21,6 +21,7 @@ def home_page_view(request):
 
     # 56 title
     # 359 + 4.
+    print(request.path_info)
     return render(request, 'main_page.html', content)
 
 

@@ -1,21 +1,14 @@
-import re
-
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from ckeditor_uploader.fields import RichTextUploadingField
 
-
-def clean_html(raw_html):
-
-  cleanr =re.compile('<.*?>')
-
-  cleantext = re.sub(cleanr,'', raw_html)
-
-  return cleantext
-
-
 # Create your models here.
+
+to_translate ={
+    'Categories': _('Categories'),
+
+}
 
 
 class Tag(models.Model):
@@ -45,8 +38,9 @@ class News(models.Model):
 
     blog_news_img = models.ImageField(blank=True, upload_to='blog/posts/%Y/%m/%d')
 
-    title = models.CharField(max_length=150, blank=True, db_index=True, unique=True, verbose_name=_('Title'))
-    content = RichTextUploadingField(blank=True, verbose_name=_('Content'))
+    title = models.CharField(max_length=150, blank=False, db_index=True, unique=True, verbose_name=_('Title'))
+    content = RichTextUploadingField(blank=False, verbose_name=_('Content'))
+    description = models.CharField(max_length=255, blank=False, verbose_name=_('Description'))
 
     created = models.DateField(auto_now_add=True, verbose_name=_('Created'))
 
@@ -56,9 +50,6 @@ class News(models.Model):
     class Meta:
         verbose_name = _('News in blog')
         verbose_name_plural = _('News in blog')
-
-    def get_short_descriptions(self):
-        return clean_html(' '.join(self.content[:180].split()[:-1]))
 
     def __str__(self):
         return self.title_uk
