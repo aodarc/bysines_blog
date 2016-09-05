@@ -27,7 +27,6 @@ def home_page_view(request):
 def single_blog_post_view(request, post_id):
     news = get_object_or_404(News, pk=post_id)
 
-    print(news.get_short_descriptions())
     content = {
         'news': news,
     }

@@ -15,7 +15,7 @@
                 <div class="slide-article">
                   <h1 class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s">Знаходь інвестиції</h1>
                   <p class="wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.75s">Опис та допомога в пошуках та отриманні інвестицій з Європи для власного бізнесу.
-				   Інвестування в ринки ЄС<p>
+           Інвестування в ринки ЄС<p>
                   <a class="read-more-btn wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s" href="#">Докладніше</a>
                 </div>
               </div>
@@ -69,63 +69,63 @@
             <div class="row">
               <div class="col-md-4 col-sm-6">
                 <div class="single-feature wow zoomIn">
-				<a  href="#">
+        <a  href="#">
 
                   <h4 class="feat-title">Секрет успіху Швейцарії</h4>
                   <p>У Швейцарії недавно пройшов референдум про "основний дохід" — ідею про те, що кожен громадянин повинен отримувати гарантований дохід у розмірі близько 2 500 швейцарських франків на місяць від уряду....
-				  </p>
+          </p>
                 </a>
-				</div>
+        </div>
               </div>
               <div class="col-md-4 col-sm-6">
                 <div class="single-feature wow zoomIn">
-				<a  href="#">
+        <a  href="#">
 
                   <h4 class="feat-title">Секрет успіху Швейцарії</h4>
                   <p>У Швейцарії недавно пройшов референдум про "основний дохід" — ідею про те, що кожен громадянин повинен отримувати гарантований дохід у розмірі близько 2 500 швейцарських франків на місяць від уряду....
-				  </p>
+          </p>
                 </a>
-				</div>
+        </div>
               </div>
               <div class="col-md-4 col-sm-6">
                 <div class="single-feature wow zoomIn">
-			<a  href="#">
+      <a  href="#">
 
                   <h4 class="feat-title">Секрет успіху Швейцарії</h4>
                   <p>У Швейцарії недавно пройшов референдум про "основний дохід" — ідею про те, що кожен громадянин повинен отримувати гарантований дохід у розмірі близько 2 500 швейцарських франків на місяць від уряду....
-				  </p>
+          </p>
                 </a>
-				</div>
+        </div>
               </div>
               <div class="col-md-4 col-sm-6">
                  <div class="single-feature wow zoomIn">
-				<a  href="#">
+        <a  href="#">
 
                   <h4 class="feat-title">Секрет успіху Швейцарії</h4>
                   <p>У Швейцарії недавно пройшов референдум про "основний дохід" — ідею про те, що кожен громадянин повинен отримувати гарантований дохід у розмірі близько 2 500 швейцарських франків на місяць від уряду....
-				  </p>
+          </p>
                 </a>
-				</div>
+        </div>
               </div>
               <div class="col-md-4 col-sm-6">
                  <div class="single-feature wow zoomIn">
-			<a  href="#">
+      <a  href="#">
 
                   <h4 class="feat-title">Секрет успіху Швейцарії</h4>
                   <p>У Швейцарії недавно пройшов референдум про "основний дохід" — ідею про те, що кожен громадянин повинен отримувати гарантований дохід у розмірі близько 2 500 швейцарських франків на місяць від уряду....
-				  </p>
+          </p>
                 </a>
-				</div>
+        </div>
               </div>
               <div class="col-md-4 col-sm-6">
                  <div class="single-feature wow zoomIn">
-			<a  href="#">
+      <a  href="#">
 
                   <h4 class="feat-title">Секрет успіху Швейцарії</h4>
                   <p>У Швейцарії недавно пройшов референдум про "основний дохід" — ідею про те, що кожен громадянин повинен отримувати гарантований дохід у розмірі близько 2 500 швейцарських франків на місяць від уряду....
-				  </p>
+          </p>
                 </a>
-				</div>
+        </div>
               </div>
             </div>
           </div>
@@ -149,53 +149,24 @@
           <div class="latest-news-content">
             <div class="row">
               <!-- start single latest news -->
-              <div class="col-md-4">
-                <article class="blog-news-single">
-                  <div class="blog-news-img">
-                    <a href="blog-single-with-right-sidebar.html"><img src="{% static 'assets/images/blog-img-1.jpg' %}" alt="image"></a>
-                  </div>
-                  <div class="blog-news-title">
-                    <h2><a href="blog-single-with-right-sidebar.html">All about writing story</a></h2>
-                    <p>By <a class="blog-author" href="#">John Powell</a> <span class="blog-date">|18 October 2015</span></p>
-                  </div>
-                  <div class="blog-news-details">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
-                    <a class="blog-more-btn" href="blog-single-with-right-sidebar.html">Read More <i class="fa fa-long-arrow-right"></i></a>
-                  </div>
-                </article>
-              </div>
+                {% for post in news%}
+                    <div class="col-md-4">
+                        <article class="blog-news-single">
+                            <div class="blog-news-img">
+                                <a href="{% url 'blog_post' post.pk %}"><img src="{{ MEDIA_URL }}{{ post.blog_news_img }}" alt="image"></a>
+                            </div>
+                            <div class="blog-news-title">
+                                <h2><a href="{% url 'blog_post' post.pk %}">{{ post.title }}</a></h2>
+                                <p>By <a class="blog-author" href="#">{{ post.author.get_full_name }}</a> <span class="blog-date">|{{ post.created|date:"j F Y" }}</span></p>
+                            </div>
+                            <div class="blog-news-details">
+                                <p>{{ post.get_short_descriptions }}</p>
+                                <a class="blog-more-btn" href="{% url 'blog_post' post.pk%}">Read More <i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
               <!-- start single latest news -->
-              <div class="col-md-4">
-                <article class="blog-news-single">
-                  <div class="blog-news-img">
-                    <a href="blog-single-with-right-sidebar.html"><img src="{% static 'assets/images/blog-img-2.jpg' %}" alt="image"></a>
-                  </div>
-                  <div class="blog-news-title">
-                    <h2><a href="blog-single-with-right-sidebar.html">Best Mobile Device</a></h2>
-                    <p>By <a class="blog-author" href="#">John Powell</a> <span class="blog-date">|18 October 2015</span></p>
-                  </div>
-                  <div class="blog-news-details">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
-                    <a class="blog-more-btn" href="blog-single-with-right-sidebar.html">Read More <i class="fa fa-long-arrow-right"></i></a>
-                  </div>
-                </article>
-              </div>
-              <!-- start single latest news -->
-              <div class="col-md-4">
-                <article class="blog-news-single">
-                  <div class="blog-news-img">
-                    <a href="blog-single-with-right-sidebar.html"><img src="{% static 'assets/images/blog-img-3.jpg' %}" alt="image"></a>
-                  </div>
-                  <div class="blog-news-title">
-                    <h2><a href="blog-single-with-right-sidebar.html">Personal Note Details</a></h2>
-                    <p>By <a class="blog-author" href="#">John Powell</a> <span class="blog-date">|18 October 2015</span></p>
-                  </div>
-                  <div class="blog-news-details">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the</p>
-                    <a class="blog-more-btn" href="blog-single-with-right-sidebar.html">Read More <i class="fa fa-long-arrow-right"></i></a>
-                  </div>
-                </article>
-              </div>
             </div>
           </div>
         </div>
@@ -212,7 +183,7 @@
             <h2 class="title">Про нас</h2>
             <span class="line"></span>
             <p>Українсьпо-Польський Бізнес Центр створенний для допомоги у розширенні бізнесу, пошуку нових можливостей та партерів на ринку Європи.
-			</p>
+      </p>
           </div>
         </div>
    <!--    <div class="col-md-12">
@@ -536,7 +507,7 @@
                      <li>Юридичні консультації</li>
                       <li>Аналіз ринку</li>
                       <li>Бухгалтерія</li>
-					  <li>Юридичні консультації</li>
+            <li>Юридичні консультації</li>
                       <li>Аналіз ринку</li>
                       <li>Бухгалтерія</li>
                     </ul>
@@ -559,13 +530,13 @@
                     <li>Юридичні консультації</li>
                       <li>Аналіз ринку</li>
                       <li>Бухгалтерія</li>
-					  <li>Юридичні консультації</li>
+            <li>Юридичні консультації</li>
                       <li>Аналіз ринку</li>
                       <li>Бухгалтерія</li>
-					  <li>Юридичні консультації</li>
+            <li>Юридичні консультації</li>
                       <li>Аналіз ринку</li>
                       <li>Бухгалтерія</li>
-					  <li>Юридичні консультації</li>
+            <li>Юридичні консультації</li>
                       </ul>
                   </div>
 
