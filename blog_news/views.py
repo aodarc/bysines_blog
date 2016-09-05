@@ -1,5 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.http import Http404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView
+
+from blog_news.forms import CommentForm
 from .models import News
 
 
@@ -32,5 +35,15 @@ def single_blog_post_view(request, post_id):
     return render(request, 'blog-single-with-right-sidebar.html', content)
 
 
-def add_comment_view(request):
-    return render(request, )
+def add_comment_view(request, post_id):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = get_object_or_404(News, pk=post_id)
+            comment.save()
+
+        return redirect('blog_post', post_id=post_id)
+    else:
+        raise Http404("Method not allowed")
