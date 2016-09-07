@@ -57,3 +57,7 @@ def add_comment_view(request, post_id):
         return redirect('blog_post', post_id=post_id)
     else:
         raise Http404("Method not allowed")
+
+
+def page404(request):
+    return render(request, '404.html')
