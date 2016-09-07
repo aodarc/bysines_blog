@@ -71,3 +71,19 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.email + ' ' + self.name
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=25, blank=False, verbose_name=_('Name'))
+    email = models.EmailField(blank=False)
+    subject = models.CharField(max_length=240, blank=False, verbose_name=_('Subject'))
+    text = models.TextField(max_length=2000, blank=False, verbose_name=_('Text'))
+    date = models.DateTimeField(auto_now_add=True, blank=False, verbose_name=_('Was Sand'))
+
+    class Meta:
+        verbose_name = _('Contact')
+        verbose_name_plural = _('Contacts')
+        ordering = ('-date',)
+
+    def __str__(self):
+        return self.subject

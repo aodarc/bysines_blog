@@ -2,7 +2,7 @@ from django.http import Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView
 
-from blog_news.forms import CommentForm
+from blog_news.forms import CommentForm, ContactForm
 from .models import News
 
 
@@ -24,6 +24,16 @@ def home_page_view(request):
     print(request.path_info)
     return render(request, 'main_page.html', content)
 
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+        return redirect('contact')
+    else:
+        return render(request, 'contact.html')
 
 def single_blog_post_view(request, post_id):
     news = get_object_or_404(News, pk=post_id)

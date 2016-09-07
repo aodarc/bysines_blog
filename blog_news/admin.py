@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.db import models
 from modeltranslation.translator import TranslationOptions, translator
 
-from .models import News, Tag, Category
+from .models import News, Tag, Category, Contact
 
 # Register your models here.
 from ckeditor.widgets import CKEditorWidget
@@ -35,3 +35,4 @@ class NewsAdmin(TabbedTranslationAdmin):
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(News, NewsAdmin)
 admin.site.register(Tag)
+admin.site.register(Contact)

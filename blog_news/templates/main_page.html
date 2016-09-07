@@ -172,8 +172,8 @@
                 <div class="col-md-4">
                   <article class="blog-news-single">
                     <div class="blog-news-img">
-                      <a href="{% url 'blog_post' post.pk %}"><img src="{{ MEDIA_URL }}{{ post.blog_news_img }}"
-                                                                   alt="image"></a>
+                      <a href="{% url 'blog_post' post.pk %}">
+                        <img src="{{ MEDIA_URL }}{{ post.blog_news_img }}" alt="image"></a>
                     </div>
                     <div class="blog-news-title">
                       <h2><a href="{% url 'blog_post' post.pk %}">{{ post.title }}</a></h2>
