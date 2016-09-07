@@ -50,6 +50,7 @@ class News(models.Model):
     class Meta:
         verbose_name = _('News in blog')
         verbose_name_plural = _('News in blog')
+        ordering = ('-created',)
 
     def __str__(self):
         return self.title_uk

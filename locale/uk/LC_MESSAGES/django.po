@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-06 10:15+0300\n"
+"POT-Creation-Date: 2016-09-07 22:59+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,93 +19,141 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: blog_news/models.py:25
-msgid "Tag"
-msgstr "Тег"
-
-#: blog_news/models.py:26 blog_news/models.py:54
-msgid "Tags"
-msgstr "Теги"
-
-#: blog_news/models.py:36
-msgid "Category"
-msgstr "Категорія"
-
-#: blog_news/models.py:37 blog_news/models.py:53
+#: blog_news/models.py:9 blog_news/models.py:30 blog_news/models.py:47
 msgid "Categories"
 msgstr "Категорії"
 
-#: blog_news/models.py:48
+#: blog_news/models.py:18
+msgid "Tag"
+msgstr "Тег"
+
+#: blog_news/models.py:19 blog_news/models.py:48
+msgid "Tags"
+msgstr "Теги"
+
+#: blog_news/models.py:29
+msgid "Category"
+msgstr "Категорія"
+
+#: blog_news/models.py:41
 msgid "Title"
 msgstr ""
 
-#: blog_news/models.py:49 blog_news/models.py:70
+#: blog_news/models.py:42 blog_news/models.py:62
 msgid "Content"
 msgstr ""
 
-#: blog_news/models.py:51 blog_news/models.py:71
+#: blog_news/models.py:43
+msgid "Description"
+msgstr ""
+
+#: blog_news/models.py:45 blog_news/models.py:63
 msgid "Created"
 msgstr ""
 
-#: blog_news/models.py:57 blog_news/models.py:58
+#: blog_news/models.py:51 blog_news/models.py:52
 msgid "News in blog"
 msgstr "Новини в блозі"
 
-#: blog_news/models.py:68
+#: blog_news/models.py:60
 msgid "Email"
 msgstr ""
 
-#: blog_news/models.py:69
+#: blog_news/models.py:61 blog_news/models.py:78
 msgid "Name"
 msgstr ""
 
-#: blog_news/models.py:77
+#: blog_news/models.py:69
 msgid "Comment"
 msgstr "Коментар"
 
-#: blog_news/models.py:78
+#: blog_news/models.py:70
 msgid "Comments"
 msgstr "Коментарі"
 
-#: blog_news/templates/blog-single-with-right-sidebar.html:143
+#: blog_news/models.py:80
+msgid "Subject"
+msgstr ""
+
+#: blog_news/models.py:81
+msgid "Text"
+msgstr ""
+
+#: blog_news/models.py:82
+msgid "Was Sand"
+msgstr ""
+
+#: blog_news/models.py:85
+msgid "Contact"
+msgstr ""
+
+#: blog_news/models.py:86
+msgid "Contacts"
+msgstr ""
+
+#: blog_news/templates/blog-single-with-right-sidebar.html:146
 msgid "Responsive"
 msgstr "Гнучкий"
 
-#: blog_news/templates/blog-single-with-right-sidebar.html:144
+#: blog_news/templates/blog-single-with-right-sidebar.html:147
 msgid "Design"
 msgstr "Дизайн"
 
-#: blog_news/templates/blog-single-with-right-sidebar.html:145
+#: blog_news/templates/blog-single-with-right-sidebar.html:148
 msgid "Modern"
 msgstr "Передовий"
 
-#: blog_news/templates/blog-single-with-right-sidebar.html:146
+#: blog_news/templates/blog-single-with-right-sidebar.html:149
 msgid "Business"
 msgstr "Бізнес"
 
-#: blog_news/templates/blog-single-with-right-sidebar.html:147
+#: blog_news/templates/blog-single-with-right-sidebar.html:150
 msgid "Software"
 msgstr "Програмне забезпечення"
 
-#: blog_news/templates/blog-single-with-right-sidebar.html:148
+#: blog_news/templates/blog-single-with-right-sidebar.html:151
 msgid "Photoshop"
 msgstr "Фотошоп"
 
-#: blog_news/templates/blog-single-with-right-sidebar.html:149
+#: blog_news/templates/blog-single-with-right-sidebar.html:152
 msgid "Fashion"
 msgstr "Модний"
 
-#: blog_news/templates/blog-single-with-right-sidebar.html:150
+#: blog_news/templates/blog-single-with-right-sidebar.html:153
 msgid "News"
 msgstr "Новини"
 
-#: blog_news/templates/blog-single-with-right-sidebar.html:151
+#: blog_news/templates/blog-single-with-right-sidebar.html:154
 msgid "Health"
 msgstr "Здоров'я"
 
-#: blog_news/templates/blog-single-with-right-sidebar.html:152
+#: blog_news/templates/blog-single-with-right-sidebar.html:155
 msgid "Education"
 msgstr "Навчання"
+
+#: blog_news/templates/contact.html:35
+msgid "маєш запитання?"
+msgstr ""
+
+#: blog_news/templates/contact.html:46
+msgid "Контактна інформація"
+msgstr ""
+
+#: blog_news/templates/contact.html:68
+msgid "Ім'я"
+msgstr ""
+
+#: blog_news/templates/contact.html:74
+msgid "Тема"
+msgstr ""
+
+#: blog_news/templates/contact.html:77
+msgid "Коментар"
+msgstr ""
+
+#: blog_news/templates/contact.html:79
+msgid "Запитати"
+msgstr ""
 
 #: htdocs/settings.py:114
 #, fuzzy
@@ -126,98 +174,98 @@ msgstr "Польська"
 msgid "Новий міст : Головна"
 msgstr ""
 
-#: templates/index.html:125
+#: templates/index.html:134
 msgid "Login"
 msgstr ""
 
-#: templates/index.html:136 templates/index.html:170
+#: templates/index.html:145 templates/index.html:181
 msgid "Remember me"
 msgstr ""
 
-#: templates/index.html:137
+#: templates/index.html:146
 msgid "SIGN IN"
 msgstr ""
 
-#: templates/index.html:142
+#: templates/index.html:151
 msgid "Forgot password ?"
 msgstr ""
 
-#: templates/index.html:143
+#: templates/index.html:152
 msgid "No account ?"
 msgstr ""
 
-#: templates/index.html:143
+#: templates/index.html:152
 msgid "Sign Up."
 msgstr ""
 
-#: templates/index.html:150
+#: templates/index.html:160
 msgid "Sign Up"
 msgstr ""
 
-#: templates/index.html:167
+#: templates/index.html:177
 msgid "Already got account? "
 msgstr ""
 
-#: templates/index.html:167
+#: templates/index.html:178
 msgid "Sign In."
 msgstr ""
 
-#: templates/index.html:171
+#: templates/index.html:182
 msgid "SIGN UP"
 msgstr ""
 
-#: templates/index.html:200
+#: templates/index.html:212
 msgid "Головна"
 msgstr ""
 
-#: templates/index.html:201
+#: templates/index.html:213
 msgid "Новини"
 msgstr ""
 
-#: templates/index.html:202
+#: templates/index.html:214
 msgid "Послуги"
 msgstr ""
 
-#: templates/index.html:204
+#: templates/index.html:216
 msgid "Для Бізнесу"
 msgstr ""
 
-#: templates/index.html:206
+#: templates/index.html:219
 msgid "Оголошення"
 msgstr ""
 
-#: templates/index.html:207
+#: templates/index.html:220
 msgid "Зразки документів"
 msgstr ""
 
-#: templates/index.html:208
+#: templates/index.html:221
 msgid "Тендери"
 msgstr ""
 
-#: templates/index.html:209 templates/index.html:218
+#: templates/index.html:222 templates/index.html:232
 msgid "Гранти"
 msgstr ""
 
-#: templates/index.html:213
+#: templates/index.html:226
 msgid "Дня Навчання"
 msgstr ""
 
-#: templates/index.html:215
+#: templates/index.html:229
 msgid "Навчання"
 msgstr ""
 
-#: templates/index.html:216
+#: templates/index.html:230
 msgid "Практика"
 msgstr ""
 
-#: templates/index.html:217
+#: templates/index.html:231
 msgid "Для викладачів"
 msgstr ""
 
-#: templates/index.html:222
+#: templates/index.html:236
 msgid "Контакти"
 msgstr ""
 
-#: templates/index.html:243
+#: templates/index.html:257
 msgid "Новий міст - українсько-польський бізнес центр"
 msgstr ""

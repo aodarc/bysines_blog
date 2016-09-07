@@ -91,7 +91,7 @@
               </li>
               <li>
                 <div class="mail">
-                  <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                  <form action="{% url 'set_language' %}" method="POST">{% csrf_token %}
                     <input name="next" type="hidden" value="{{ redirect_to }}"/>
                     <select name="language">
                       {% get_current_language as LANGUAGE_CODE %}
@@ -210,30 +210,30 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
           <li class="active"><a href="{% url 'home' %}">{% trans 'Головна' %}</a></li>
-          <li><a href="{% url 'home' %}">{% trans 'Новини' %}</a></li>
+          <li><a href="{% url 'blog_archive' %}">{% trans 'Новини' %}</a></li>
           <li><a href="{% url 'service' %}">{% trans 'Послуги' %}</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Для Бізнесу' %} <span
                 class="fa fa-angle-down"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="blog-archive.html">{% trans 'Оголошення' %}</a></li>
-              <li><a href="blog-single-with-left-sidebar.html">{% trans 'Зразки документів' %}</a></li>
-              <li><a href="blog-single-with-right-sidebar.html">{% trans 'Тендери' %}</a></li>
-              <li><a href="blog-single-with-out-sidebar.html">{% trans 'Гранти' %}</a></li>
+              <li><a href="{% url 'blog_archive' %}">{% trans 'Оголошення' %}</a></li>
+              <li><a href="{% url 'blog_archive' %}">{% trans 'Зразки документів' %}</a></li>
+              <li><a href="{% url 'blog_archive' %}">{% trans 'Тендери' %}</a></li>
+              <li><a href="{% url 'blog_archive' %}">{% trans 'Гранти' %}</a></li>
             </ul>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans 'Дня Навчання' %} <span
                 class="fa fa-angle-down"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="blog-archive.html">{% trans 'Навчання' %}</a></li>
-              <li><a href="blog-single-with-left-sidebar.html">{% trans 'Практика' %}</a></li>
-              <li><a href="blog-single-with-right-sidebar.html">{% trans 'Для викладачів' %}</a></li>
-              <li><a href="blog-single-with-out-sidebar.html">{% trans 'Гранти' %}</a></li>
+              <li><a href="{% url 'blog_archive' %}">{% trans 'Навчання' %}</a></li>
+              <li><a href="{% url 'blog_archive' %}">{% trans 'Практика' %}</a></li>
+              <li><a href="{% url 'blog_archive' %}">{% trans 'Для викладачів' %}</a></li>
+              <li><a href="{% url 'blog_archive' %}">{% trans 'Гранти' %}</a></li>
             </ul>
           </li>
 
-          <li><a href="contact.html">{% trans 'Контакти' %}</a></li>
+          <li><a href="{% url 'contact' %}">{% trans 'Контакти' %}</a></li>
         </ul>
       </div><!--/.nav-collapse -->
       <a href="#" id="search-icon">

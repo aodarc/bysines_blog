@@ -17,8 +17,12 @@ class NewsListView(ListView):
 
 
 def home_page_view(request):
-    content = {'news': News.objects.all()[:6]}
+    content = {
+        'news': News.objects.all()[:3],
+        'publications': News.objects.filter(categories__name_en='Publications')
+    }
 
+    print(content['publications'])
     # 56 title
     # 359 + 4.
     print(request.path_info)
