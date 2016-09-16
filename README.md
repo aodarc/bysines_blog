@@ -1,2 +1,2 @@
-# bysines_blog
+# Bussines Blog
 Blog
