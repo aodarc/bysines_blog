@@ -57,12 +57,14 @@
                   {% endfor %}
                   <div class="blog-pagination">
                     <ul class="pagination-nav">
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li><a href="#">6</a></li>
+                      {% if is_paginated %}
+                        {% for page in paginator.page_range %}
+                          {% if page == page_obj.number %}{{ page }}
+                          {% else %}
+                            <li><a href="{% url 'blog_archive' %}?page={{ page }}">{{ page }}</a></li>
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
                     </ul>
                   </div>
                 </div>

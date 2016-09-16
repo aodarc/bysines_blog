@@ -39,6 +39,7 @@ def contact_view(request):
     else:
         return render(request, 'contact.html')
 
+
 def single_blog_post_view(request, post_id):
     news = get_object_or_404(News, pk=post_id)
 
