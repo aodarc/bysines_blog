@@ -74,7 +74,7 @@
   <div class="header-bottom">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="header-contact">
             <ul>
               <li>
@@ -90,35 +90,24 @@
                 </div>
               </li>
               <li>
-                <div class="mail">
-                  <form action="{% url 'set_language' %}" method="POST">{% csrf_token %}
-                    <input name="next" type="hidden" value="{{ redirect_to }}"/>
-                    <select name="language">
-                      {% get_current_language as LANGUAGE_CODE %}
-                      {% get_available_languages as LANGUAGES %}
-                      {% get_language_info_list for LANGUAGES as languages %}
-                      {% for language in languages %}
-                        <option value="{{ language.code }}"
-                            {% if language.code == LANGUAGE_CODE %}
-                                selected="selected"{% endif %}>
-                          {{ language.name_local }} ({{ language.code }})
-                        </option>
-                      {% endfor %}
-                    </select>
-                    <input type="submit" value="Go"/>
-                  </form>
-                </div>
+                <div class="lang"><a href="/set_language/?language=en&next=/en/{{ request.path|slice:"4:" }}">EN</a></div>
+              </li>
+              <li>
+                <div class="lang"><a href="/set_language/?language=pl&next=/pl/{{ request.path|slice:"4:" }}"> PL </a></div>
+              </li>
+              <li>
+                <div class="lang"><a href="/set_language/?language=uk&next=/uk/{{ request.path|slice:"4:" }}"> UK</a></div>
               </li>
             </ul>
           </div>
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-6">
+        <!-- <div class="col-md-6 col-sm-6 col-xs-6">
           <!--   <div class="header-login">
               <a class="login modal-form" data-target="#login-form" data-toggle="modal" href="#">Login / Sign Up</a>
             </div>-->
-        </div>
       </div>
     </div>
+  </div>
   </div>
 </header>
 <!-- End header -->

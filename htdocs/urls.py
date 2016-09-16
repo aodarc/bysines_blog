@@ -18,8 +18,11 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.views.generic import TemplateView
 
+from .views import set_language
+
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n'), name='set_language'),
+    url(r'^set_language/$', set_language, name='set_language'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
