@@ -89,15 +89,22 @@
                   iam@domain.com
                 </div>
               </li>
-              <li>
-                <div class="lang"><a href="/set_language/?language=en&next=/en/{{ request.path|slice:"4:" }}">EN</a></div>
-              </li>
-              <li>
-                <div class="lang"><a href="/set_language/?language=pl&next=/pl/{{ request.path|slice:"4:" }}"> PL </a></div>
-              </li>
-              <li>
-                <div class="lang"><a href="/set_language/?language=uk&next=/uk/{{ request.path|slice:"4:" }}"> UK</a></div>
-              </li>
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              {% for language in languages %}
+                <li>
+                  <div>
+                    <a href="{% url 'set_language' %}?language=en&next=/{{ language.code }}/{{ request.path|slice:"4:" }}">
+                      {% if language.code == LANGUAGE_CODE %}
+                        <strong>{{ language.code }}</strong>
+                      {% else %}
+                        {{ language.code }}
+                      {% endif %}
+                    </a>
+                  </div>
+                </li>
+              {% endfor %}
             </ul>
           </div>
         </div>

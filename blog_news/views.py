@@ -22,7 +22,6 @@ def home_page_view(request):
         'publications': News.objects.filter(categories__name_en='Publications')
     }
 
-    print(content['publications'])
     # 56 title
     # 359 + 4.
     print(request.path_info)

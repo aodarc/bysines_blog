@@ -221,6 +221,7 @@ img {
 
 .header-contact ul li:nth-last-child(-n+3) {
     float: right;
+    text-transform: uppercase;
 }
 
 .phone {
